@@ -12,6 +12,13 @@
   --secondary-accent-color: #ffd456;
 }
 
+.dark-mode {
+  --bg-color: #1b1b1b;
+  --bg-color-0: rgb(45, 45, 45);
+  --bg-color-1: rgb(71, 73, 75);
+  --bg-color-2: rgba(150, 150, 150, 0.15);
+}
+
 .notion {
   --notion-max-width: 720px;
   --notion-header-height: 54px;
@@ -160,6 +167,15 @@
   .notion-search-button {
     display: none !important;
   }
+}
+
+.notion-search input {
+  color: var(--fg-color);
+}
+
+.dark-mode .notion-search .noResults,
+.dark-mode .notion-search .noResultsDetail {
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .notion .notion-page-icon-cover {
