@@ -1,10 +1,13 @@
 {
-  "name": "nextjs-notion-starter-kit",
+  "name": "aucklandarmycadets",
   "version": "2.0.0",
   "private": true,
-  "description": "The perfect starter kit for building beautiful websites with Next.js and Notion.",
-  "author": "Travis Fischer <travis@transitivebullsh.it>",
-  "repository": "transitive-bullshit/nextjs-notion-starter-kit",
+  "description": "The City of Auckland Cadet Unit Website, built with Next.js and Notion.",
+  "contributors": [
+    "James Bao <james.bao@cadetforces.org.nz",
+    "Travis Fischer <travis@transitivebullsh.it>"
+  ],
+  "repository": "aucklandarmycadets/aucklandarmycadets",
   "license": "MIT",
   "engines": {
     "node": ">=14.17"
