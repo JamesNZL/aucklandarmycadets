@@ -173,9 +173,12 @@
   color: var(--fg-color);
 }
 
-.dark-mode .notion-search .noResults,
-.dark-mode .notion-search .noResultsDetail {
+.dark-mode .notion-search .noResults {
   color: rgba(255, 255, 255, 0.6);
+}
+
+.dark-mode .notion-search .noResultsDetail {
+  color: rgba(255, 255, 255, 0.4);
 }
 
 .notion .notion-page-icon-cover {
