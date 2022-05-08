@@ -153,6 +153,10 @@
   margin: 0.75em 0;
 }
 
+.notion-callout .notion-page-icon-image {
+  margin-top: 0.25rem;
+}
+
 .notion-hr {
   margin: 2em 0;
 }
