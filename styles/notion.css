@@ -109,6 +109,12 @@
   pointer-events: none;
 }
 
+@media only screen and (max-width: 640px) {
+  .index-page .notion-asset-wrapper-image {
+    display: none !important;
+  }
+}
+
 .notion-text {
   padding: 0.5em 2px;
 }
