@@ -1,25 +1,25 @@
-import { siteConfig } from './lib/site-config'
+import { siteConfig } from './lib/site-config';
 
 export default siteConfig({
   // the site's root Notion page (required)
-  rootNotionPageId: '7875426197cf461698809def95960ebf',
+  rootNotionPageId: 'd9e4d2d799734db09a547021f200d5bc',
 
   // if you want to restrict pages to a single notion workspace (optional)
   // (this should be a Notion ID; see the docs for how to extract this)
-  rootNotionSpaceId: null,
+  rootNotionSpaceId: '3b5f4a31dd744bd4981a1d29fb5ee924',
 
   // basic site info (required)
-  name: 'Next.js Notion Starter Kit',
-  domain: 'nextjs-notion-starter-kit.transitivebullsh.it',
-  author: 'Travis Fischer',
+  name: 'City of Auckland Cadet Unit',
+  domain: 'aucklandarmycadets.com',
+  author: 'City of Auckland Cadet Unit',
 
   // open graph metadata (optional)
-  description: 'Example Next.js Notion Starter Kit Site',
+  description: 'The City of Auckland Cadet Unit is part of the New Zealand Cadet Forces (NZCF), a military-styled, volunteer, youth organisation.',
 
   // social usernames (optional)
-  twitter: 'transitive_bs',
-  github: 'transitive-bullshit',
-  linkedin: 'fisch2',
+  twitter: null,
+  github: null,
+  linkedin: null,
 
   // default notion icon and cover images for site-wide consistency (optional)
   // page-specific values will override these site-wide defaults
@@ -59,4 +59,4 @@ export default siteConfig({
   //     pageId: '6a29ebcb935a4f0689fe661ab5f3b8d1'
   //   }
   // ]
-})
+});
