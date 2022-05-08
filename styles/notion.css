@@ -34,6 +34,11 @@
   --notion-max-width: 900px;
 }
 
+.index-page .notion-h1 {
+  margin-inline: auto;
+  font-size: 2.125em;
+}
+
 .notion-text {
   padding: 0.5em 2px;
 }
@@ -140,6 +145,8 @@
 .notion-h2,
 .notion-h3 {
   margin-bottom: 0.25em;
+  text-transform: uppercase;
+  font-weight: 900;
 }
 
 .notion-callout {
