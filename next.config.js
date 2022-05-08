@@ -17,5 +17,12 @@ module.exports = withBundleAnalyzer({
     formats: ['image/avif', 'image/webp'],
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;"
-  }
+  },
+  redirects: [
+    {
+      'source': '/discord',
+      'destination': 'https://discord.com/invite/aMwedtR',
+      'permanent': true
+    }
+  ]
 });
