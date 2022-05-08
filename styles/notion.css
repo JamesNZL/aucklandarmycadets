@@ -104,8 +104,8 @@
 }
 
 .index-page .notion-asset-wrapper img {
-  min-height: 100vh !important;
-  max-height: 100vh !important;
+  min-height: 60vh !important;
+  max-height: 60vh !important;
   pointer-events: none;
 }
 
