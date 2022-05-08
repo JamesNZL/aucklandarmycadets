@@ -238,6 +238,10 @@
   margin: 2em 0;
 }
 
+.dark-mode .notion-hr {
+  opacity: 0.5;
+}
+
 @media only screen and (max-width: 920px) {
   .index-page.notion-page {
     padding-left: 2vw;
