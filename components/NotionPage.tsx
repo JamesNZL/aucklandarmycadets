@@ -214,7 +214,12 @@ export const NotionPage: React.FC<types.PageProps> = ({
     return <Page404 site={site} pageId={pageId} error={error} />
   }
 
-  const title = getBlockTitle(block, recordMap) || site.name
+  const blockTitle = getBlockTitle(block, recordMap)
+  const title = (blockTitle)
+    ? (blockTitle === site.name)
+      ? blockTitle
+      : `${blockTitle} | ${site.name}`
+    : site.name
 
   console.log('notion page', {
     isDev: config.isDev,
