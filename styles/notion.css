@@ -75,6 +75,36 @@
   font-size: 2.125em;
 }
 
+.index-page .notion-asset-wrapper,
+.index-page .notion-asset-wrapper img {
+  width: 100vw !important;
+  max-width: 100vw !important;
+}
+
+@media (min-width: 1300px) and (min-height: 300px) {
+  .index-page .notion-page-content-has-aside {
+    width: 100%
+  }
+
+  .index-page .notion-page-content-inner {
+    width: inherit;
+  }
+}
+
+.index-page .notion-text+.notion-asset-wrapper {
+  margin-top: 4.40em;
+}
+
+.index-page .notion-row+.notion-asset-wrapper {
+  margin-top: 3.48em;
+}
+
+.index-page .notion-asset-wrapper img {
+  min-height: 100vh !important;
+  max-height: 100vh !important;
+  pointer-events: none;
+}
+
 .notion-text {
   padding: 0.5em 2px;
 }
