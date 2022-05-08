@@ -17,6 +17,7 @@
   --bg-color-0: rgb(45, 45, 45);
   --bg-color-1: rgb(71, 73, 75);
   --bg-color-2: rgba(150, 150, 150, 0.15);
+  --notion-blue_background_co: rgba(31, 102, 143, 0.15);
 }
 
 .notion {
