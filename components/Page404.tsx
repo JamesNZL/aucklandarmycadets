@@ -1,5 +1,4 @@
 import * as React from 'react'
-import cs from 'classnames';
 
 import * as types from 'lib/types'
 import * as config from 'lib/config';
@@ -15,7 +14,7 @@ export const Page404: React.FC<types.PageProps> = ({ site }) => {
     <>
       <PageHead site={site} title={title} />
 
-      <a className={cs(styles.container, styles.error404)} href='/'>
+      <a className={styles.container} href='/'>
         <main className={styles.main}>
           <h1>I can&apos;t seem to find that page.</h1>
           <h2>Click anywhere to go home.</h2>

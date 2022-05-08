@@ -21,6 +21,9 @@
   caret-color: rgb(55, 53, 47);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica,
     'Apple Color Emoji', Arial, sans-serif, 'Segoe UI Emoji', 'Segoe UI Symbol';
+
+  color: var(--fg-color);
+  background-color: var(--bg-color);
 }
 
 .loadingIcon {
@@ -36,11 +39,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.error404 {
-  color: var(--fg-color);
-  background-color: var(--bg-color);
 }
 
 .errorImage {
