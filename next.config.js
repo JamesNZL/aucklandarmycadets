@@ -18,11 +18,13 @@ module.exports = withBundleAnalyzer({
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;"
   },
-  redirects: [
-    {
-      'source': '/discord',
-      'destination': 'https://discord.com/invite/aMwedtR',
-      'permanent': true
-    }
-  ]
+  async redirects() {
+    return [
+      {
+        'source': '/discord',
+        'destination': 'https://discord.com/invite/aMwedtR',
+        'permanent': true,
+      }
+    ];
+  }
 });
