@@ -17,7 +17,7 @@ export const Page404: React.FC<types.PageProps> = ({ site }) => {
       <a className={styles.container} href='/'>
         <main className={styles.main}>
           <h1>I can&apos;t seem to find that page.</h1>
-          <h2>Click anywhere to go home.</h2>
+          <h2>Click anywhere to return home.</h2>
         </main>
       </a>
     </>

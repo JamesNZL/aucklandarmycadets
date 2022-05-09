@@ -14,7 +14,7 @@ export const ErrorPage: React.FC<{ statusCode: number }> = ({ statusCode }) => {
         <main className={styles.main}>
           <h1>There was an error loading this page.</h1>
           {statusCode && <p>Error code: {statusCode}</p>}
-          <h2>Click anywhere to go home.</h2>
+          <h2>Click anywhere to return home.</h2>
         </main>
       </a>
     </>
