@@ -43,6 +43,8 @@ export const pageUrlAdditions = cleanPageUrlMap(
 
 export const inversePageUrlOverrides = invertPageUrlOverrides(pageUrlOverrides)
 
+export const previewOnlyCollectionViews: string[] = getSiteConfig('previewOnlyCollectionViews')
+
 export const environment = process.env.NODE_ENV || 'development'
 export const isDev = environment === 'development'
 

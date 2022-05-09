@@ -23,6 +23,8 @@ export interface SiteConfig {
   pageUrlOverrides?: types.PageUrlOverridesMap
   pageUrlAdditions?: types.PageUrlOverridesMap
 
+  previewOnlyCollectionViews?: string[]
+
   navigationStyle?: types.NavigationStyle
   navigationLinks?: Array<NavigationLink>
 }

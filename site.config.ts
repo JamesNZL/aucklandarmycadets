@@ -40,6 +40,8 @@ export default siteConfig({
   // }
   pageUrlOverrides: null,
 
+  previewOnlyCollectionViews: ['690a7d77f1124efb804f457d40e051b5'],
+
   // whether to use the default notion navigation style or a custom one with links to
   // important pages
   // navigationStyle: 'default'
