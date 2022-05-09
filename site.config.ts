@@ -79,7 +79,7 @@ export default siteConfig({
     },
     {
       title: 'Contact Us',
-      anchorId: '#8fe31dfd4c29429bbbee3e46b789ef2f'
+      anchorId: '#b87d8ff64db944fea9ab1b7ad4ea982e'
     },
   ]
 });
