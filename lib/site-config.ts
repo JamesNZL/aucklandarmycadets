@@ -29,6 +29,7 @@ export interface SiteConfig {
 
 export interface NavigationLink {
   title: string
+  anchorId?: string
   pageId?: string
   url?: string
 }

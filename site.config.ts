@@ -44,14 +44,26 @@ export default siteConfig({
   // important pages
   // navigationStyle: 'default'
   navigationStyle: 'custom',
-  // navigationLinks: [
-  //   {
-  //     title: 'About',
-  //     pageId: 'f1199d37579b41cbabfc0b5174f4256a'
-  //   },
-  //   {
-  //     title: 'Contact',
-  //     pageId: '6a29ebcb935a4f0689fe661ab5f3b8d1'
-  //   }
-  // ]
+  navigationLinks: [
+    {
+      title: 'Unit',
+      anchorId: '6a4e761d9698400b8d696b4b1d00c074',
+    },
+    {
+      title: 'Join',
+      anchorId: '03047a8065cc4fe494c7cc09ef0d842a'
+    },
+    {
+      title: 'Training',
+      anchorId: '214aa91c3dc34e1ca7e8c703f86df8be'
+    },
+    {
+      title: 'FAQ',
+      pageId: '687e21f7605047dd9ab0a971b81f550f'
+    },
+    {
+      title: 'Contact Us',
+      anchorId: '8fe31dfd4c29429bbbee3e46b789ef2f'
+    },
+  ]
 });

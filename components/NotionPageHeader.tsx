@@ -49,11 +49,21 @@ export const NotionPageHeader: React.FC<{
         <div className='notion-nav-header-rhs breadcrumbs'>
           {navigationLinks
             ?.map((link, index) => {
-              if (!link.pageId && !link.url) {
+              if (!link.anchorId && !link.pageId && !link.url) {
                 return null
               }
 
-              if (link.pageId) {
+              if (link.anchorId) {
+                return (
+                  <components.PageLink
+                    href={`/#${link.anchorId}`}
+                    key={index}
+                    className={cs(styles.navLink, 'breadcrumb', 'button')}
+                  >
+                    {link.title}
+                  </components.PageLink>
+                );
+              } else if (link.pageId) {
                 return (
                   <components.PageLink
                     href={mapPageUrl(link.pageId)}
