@@ -285,6 +285,11 @@
   opacity: 0.5;
 }
 
+.notion-table-of-contents-item span {
+  text-overflow: ellipsis;
+  overflow: inherit;
+}
+
 @media only screen and (max-width: 920px) {
   .index-page.notion-page {
     padding-left: 2vw;
