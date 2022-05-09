@@ -122,6 +122,10 @@
 }
 
 @media only screen and (max-width: 640px) {
+  .index-page.notion-page-has-cover {
+    padding-top: 88px;
+  }
+
   .index-page .notion-title {
     font-weight: 700;
   }
