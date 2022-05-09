@@ -2,7 +2,7 @@ import { ExtendedRecordMap } from 'notion-types'
 import { uuidToId, parsePageId } from 'notion-utils'
 
 import { Site } from './types'
-import { includeNotionIdInUrls, previewOnlyCollectionViews } from './config'
+import { includeNotionIdInUrls, exposedRouteIds } from './config'
 import { getCanonicalPageId } from './get-canonical-page-id'
 
 // include UUIDs in page URLs during local development but not in production
@@ -14,16 +14,7 @@ export const mapPageUrl =
   (pageId = '') => {
     const pageUuid = parsePageId(pageId, { uuid: true })
 
-    const disallowedCollectionPageUuids = Object.values(recordMap.collection_query)
-      .flatMap(query => {
-        return Object.entries(query)
-          .filter(([viewId]) => previewOnlyCollectionViews.some(id => uuidToId(id) === uuidToId(viewId)))
-      })
-      .flatMap(query => {
-        return query[1].collection_group_results.blockIds
-      })
-
-    if (disallowedCollectionPageUuids.includes(pageUuid)) {
+    if (exposedRouteIds.length && !exposedRouteIds.includes(uuidToId(pageUuid))) {
       return null
     }
 

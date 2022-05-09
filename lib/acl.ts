@@ -1,3 +1,6 @@
+import { uuidToId } from 'notion-utils'
+
+import { exposedRouteIds } from './config'
 import { PageProps } from './types'
 
 export async function pageAcl({
@@ -18,7 +21,7 @@ export async function pageAcl({
     return {
       error: {
         statusCode: 404,
-        message: `Unable to resolve page for domain "${site.domain}". Notion page "${pageId}" not found.`
+        message: `Unable to resolve page for domain '${site.domain}'. Notion page '${pageId}' not found.`
       }
     }
   }
@@ -30,7 +33,16 @@ export async function pageAcl({
     return {
       error: {
         statusCode: 404,
-        message: `Unable to resolve page for domain "${site.domain}". Notion page "${pageId}" invalid data.`
+        message: `Unable to resolve page for domain '${site.domain}'. Notion page '${pageId}' invalid data.`
+      }
+    }
+  }
+
+  if (exposedRouteIds.length && !exposedRouteIds.includes(uuidToId(pageId))) {
+    return {
+      error: {
+        statusCode: 404,
+        message: `You are currently not authorised to view '${pageId}'.`
       }
     }
   }
@@ -47,7 +59,7 @@ export async function pageAcl({
       return {
         error: {
           statusCode: 404,
-          message: `Notion page "${pageId}" doesn't belong to the Notion workspace owned by "${site.domain}".`
+          message: `Notion page '${pageId}' doesn't belong to the Notion workspace owned by '${site.domain}'.`
         }
       }
     }

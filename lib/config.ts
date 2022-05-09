@@ -43,7 +43,7 @@ export const pageUrlAdditions = cleanPageUrlMap(
 
 export const inversePageUrlOverrides = invertPageUrlOverrides(pageUrlOverrides)
 
-export const previewOnlyCollectionViews: string[] = getSiteConfig('previewOnlyCollectionViews')
+export const exposedRouteIds: string[] = getSiteConfig('exposedRouteIds', [])
 
 export const environment = process.env.NODE_ENV || 'development'
 export const isDev = environment === 'development'
@@ -141,8 +141,8 @@ export const site: Site = {
 export const fathomId = isDev ? null : process.env.NEXT_PUBLIC_FATHOM_ID
 export const fathomConfig = fathomId
   ? {
-      excludedDomains: ['localhost', 'localhost:3000']
-    }
+    excludedDomains: ['localhost', 'localhost:3000']
+  }
   : undefined
 
 export const posthogId = process.env.NEXT_PUBLIC_POSTHOG_ID

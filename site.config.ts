@@ -40,7 +40,17 @@ export default siteConfig({
   // }
   pageUrlOverrides: null,
 
-  previewOnlyCollectionViews: ['690a7d77f1124efb804f457d40e051b5'],
+  exposedRouteIds: [
+    'd9e4d2d799734db09a547021f200d5bc',
+    '25109801828247598e668318a66ea73b',
+    '2ffc4c76c2ed40a7af1cb70f4e6860d2',
+    'd04d370a69944ae2a19ef40cd57856cc',
+    '88e040db05f840409ae366d1aea1324a',
+    '2076120a98a24d91b81c2fd4799d8b87',
+    '687e21f7605047dd9ab0a971b81f550f',
+    'b9644ebf38f742329d3f38b600d07e51',
+    'f5acad4db5894467a574b88caa3f5d5c'
+  ],
 
   // whether to use the default notion navigation style or a custom one with links to
   // important pages
