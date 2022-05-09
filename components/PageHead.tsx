@@ -39,10 +39,6 @@ export const PageHead: React.FC<
         </>
       )}
 
-      {config.twitter && (
-        <meta name='twitter:creator' content={`@${config.twitter}`} />
-      )}
-
       {description && (
         <>
           <meta name='description' content={description} />
