@@ -301,7 +301,7 @@
 
 @media only screen and (max-width: 600px) {
 
-  .notion-nav-header div:first-of-type:not(div.breadcrumbs:first-child)>*,
+  .notion-nav-header div:first-of-type:not(div.breadcrumbs:first-child):not(div.breadcrumbs div:only-child)>*,
   .breadcrumbs .spacer {
     display: none;
   }
