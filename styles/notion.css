@@ -354,6 +354,8 @@
 
 .notion-page-link {
   border-radius: 3px;
+  padding: 1.5em 1em;
+  height: auto;
 }
 
 .notion-link {
