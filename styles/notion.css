@@ -373,6 +373,10 @@
   height: auto;
 }
 
+.notion-collection-card-body .notion-page-link {
+  padding: inherit;
+}
+
 .notion-link {
   position: relative;
   transition: unset;
