@@ -561,3 +561,13 @@
 .notion-block-260baa77f1e1428b97fb14ac99c7c385 {
   display: none;
 }
+
+.notion-row.notion-block-bb80aa3d1c854a9caef45ef36088d394 .notion-column {
+  padding-bottom: 0;
+}
+
+@media only screen and (max-width: 640px) {
+  .notion-column.notion-block-d99378125ffa4974804a9fa9bde2679a {
+    padding-top: 0;
+  }
+}
