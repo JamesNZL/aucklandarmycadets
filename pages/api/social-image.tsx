@@ -12,7 +12,6 @@ import { PageBlock } from 'notion-types'
 
 import { notion } from 'lib/notion-api'
 import { mapImageUrl } from 'lib/map-image-url'
-import { interRegular } from 'lib/fonts'
 import * as config from 'lib/config'
 
 /**
@@ -23,7 +22,7 @@ import * as config from 'lib/config'
  * that would've been passed to puppeteer. This makes it much easier to develop
  * and debug issues locally.
  */
-const debugInspectHtml = false
+const debugInspectHtml = true
 
 export default withOGImage<'query', 'id'>({
   template: {
@@ -152,13 +151,6 @@ export default withOGImage<'query', 'id'>({
 })
 
 const style = `
-@font-face {
-  font-family: 'Inter';
-  font-style:  normal;
-  font-weight: normal;
-  src: url(data:font/woff2;charset=utf-8;base64,${interRegular}) format('woff2');
-}
-
 :root {
   --padding: 8vmin;
 }
@@ -168,7 +160,10 @@ const style = `
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', 'Noto Sans', sans-serif;
+  font-weight: 600;
   padding: 0;
   margin: 0;
 }
@@ -181,7 +176,7 @@ body {
   justify-content: center;
   align-items: center;
   padding: var(--padding);
-  background: #1F2027;
+  background: #1b1b1b;
   color: #fff;
 }
 
@@ -213,7 +208,7 @@ body {
 }
 
 .metadata {
-  color: #A9ACC0;
+  color: rgba(255, 255, 255, 0.75);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -233,8 +228,8 @@ body {
   height: 20vmin;
   min-height: 20vmin;
   max-height: 20vmin;
-  border-radius: 50%;
-  border: 1.5vmin solid #fff;
+  border-radius: 6px;
+  border: 0.5vmin solid #b3b14a;
 }
 
 .metadata-rhs {
@@ -247,5 +242,6 @@ body {
 
 .detail {
   overflow-wrap: break-word;
+  font-weight: 400;
 }
 `
