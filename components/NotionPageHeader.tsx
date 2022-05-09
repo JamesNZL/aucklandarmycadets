@@ -56,7 +56,7 @@ export const NotionPageHeader: React.FC<{
               if (link.anchorId) {
                 return (
                   <components.PageLink
-                    href={`/#${link.anchorId}`}
+                    href={`/${link.anchorId}`}
                     key={index}
                     className={cs(styles.navLink, 'breadcrumb', 'button')}
                   >

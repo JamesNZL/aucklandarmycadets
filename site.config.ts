@@ -46,16 +46,20 @@ export default siteConfig({
   navigationStyle: 'custom',
   navigationLinks: [
     {
+      title: 'Home',
+      anchorId: '#'
+    },
+    {
       title: 'Unit',
-      anchorId: '6a4e761d9698400b8d696b4b1d00c074',
+      anchorId: '#6a4e761d9698400b8d696b4b1d00c074',
     },
     {
       title: 'Join',
-      anchorId: '03047a8065cc4fe494c7cc09ef0d842a'
+      anchorId: '#03047a8065cc4fe494c7cc09ef0d842a'
     },
     {
       title: 'Training',
-      anchorId: '214aa91c3dc34e1ca7e8c703f86df8be'
+      anchorId: '#214aa91c3dc34e1ca7e8c703f86df8be'
     },
     {
       title: 'FAQ',
@@ -63,7 +67,7 @@ export default siteConfig({
     },
     {
       title: 'Contact Us',
-      anchorId: '8fe31dfd4c29429bbbee3e46b789ef2f'
+      anchorId: '#8fe31dfd4c29429bbbee3e46b789ef2f'
     },
   ]
 });
