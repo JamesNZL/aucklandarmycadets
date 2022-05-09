@@ -21,9 +21,14 @@
   --bg-color-2: rgba(150, 150, 150, 0.15);
 
   --notion-blue_background_co: rgba(31, 102, 143, 0.15);
+  --notion-gray_background_co: rgba(50, 52, 52, 0.3);
 
   --scrollbar-thumb-color: rgb(55, 55, 55);
   --scrollbar-hover-color: rgb(70, 70, 70);
+}
+
+.dark-mode .notion-gray-background_co {
+  --bg-color-0: rgb(110, 110, 110);
 }
 
 .light-mode,
