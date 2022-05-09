@@ -284,6 +284,14 @@
   text-align: center;
 }
 
+.notion-collection-header {
+  display: none;
+}
+
+.notion-gallery-grid {
+  border: none;
+}
+
 .notion-collection-row {
   padding-bottom: 1em;
 }
