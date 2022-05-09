@@ -196,6 +196,11 @@
   box-shadow: none;
 }
 
+.notion-block-654e988ee3d545e79b87f2915534c944 .notion-collection-card {
+  cursor: unset;
+  user-select: unset;
+}
+
 .notion-collection-card-cover img {
   border-radius: 6px;
 }
