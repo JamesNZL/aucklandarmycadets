@@ -402,6 +402,12 @@
   height: auto;
 }
 
+@media only screen and (max-width: 640px) {
+  .notion-page-link {
+    padding: 1em 1em;
+  }
+}
+
 .notion-collection-card-body .notion-page-link {
   padding: inherit;
 }
