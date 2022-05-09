@@ -122,6 +122,10 @@
 }
 
 @media only screen and (max-width: 640px) {
+  .index-page .notion-title {
+    font-weight: 700;
+  }
+
   .index-page .notion-asset-wrapper-image {
     display: none !important;
   }
