@@ -149,9 +149,20 @@
 }
 
 .notion-gallery-grid {
-  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   grid-gap: 6vmin;
   gap: 6vmin;
+}
+
+@media only screen and (max-width: 1170px) {
+  .notion-gallery-grid .notion-collection-card-body {
+    align-items: center;
+  }
+
+  .notion-gallery-grid .notion-page-title-text {
+    font-size: 1.5em !important;
+    font-weight: 700;
+  }
 }
 
 .notion-gallery-grid .notion-page-icon-inline {
@@ -159,8 +170,10 @@
 }
 
 .notion-gallery-grid .notion-page-title-text {
-  font-size: 2em;
+  font-size: 1.25em;
   white-space: unset;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 .notion-gallery-grid .notion-collection-card-property {
