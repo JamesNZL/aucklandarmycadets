@@ -250,6 +250,11 @@
   font-weight: 900;
 }
 
+.notion-hash-link svg {
+  margin-bottom: 0.225rem;
+  margin-right: 0.225rem;
+}
+
 .notion-callout {
   margin: 0.75em 0;
 }
