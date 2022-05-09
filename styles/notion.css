@@ -298,6 +298,10 @@
   overflow: inherit;
 }
 
+.dark-mode .notion-file-icon {
+  fill: var(--fg-color);
+}
+
 @media only screen and (max-width: 920px) {
   .index-page.notion-page {
     padding-left: 2vw;
