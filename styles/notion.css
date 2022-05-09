@@ -287,11 +287,20 @@
 }
 
 .notion-search input {
-  color: var(--fg-color);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.dark-mode .notion-search .notion-page-title,
+.dark-mode .notion-search .resultsFooter {
+  color: rgba(255, 255, 255, 0.75);
 }
 
 .dark-mode .notion-search .noResults {
   color: rgba(255, 255, 255, 0.6);
+}
+
+.dark-mode .notion-search .notion-search-result-highlight {
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .dark-mode .notion-search .noResultsDetail {
