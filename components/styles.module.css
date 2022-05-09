@@ -115,6 +115,10 @@
 }
 
 @media only screen and (max-width: 566px) {
+  .navLink {
+    display: none !important;
+  }
+
   .footer {
     flex-direction: column;
   }

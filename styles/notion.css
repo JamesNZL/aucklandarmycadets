@@ -154,6 +154,12 @@
   gap: 0.5rem;
 }
 
+@media only screen and (max-width: 960px) {
+  .notion-nav-links {
+    display: none;
+  }
+}
+
 .notion-gallery-grid {
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   grid-gap: 6vmin;
@@ -294,6 +300,16 @@
 }
 
 @media only screen and (max-width: 600px) {
+
+  .notion-nav-header div:first-of-type:not(div.breadcrumbs:first-child)>*,
+  .breadcrumbs .spacer {
+    display: none;
+  }
+
+  .notion-page-icon-inline span {
+    display: inline-block;
+  }
+
   .notion-search-button {
     display: none !important;
   }

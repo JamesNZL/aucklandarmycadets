@@ -47,45 +47,47 @@ export const NotionPageHeader: React.FC<{
         <Breadcrumbs block={block} rootOnly={false} />
 
         <div className='notion-nav-header-rhs breadcrumbs'>
-          {navigationLinks
-            ?.map((link, index) => {
-              if (!link.anchorId && !link.pageId && !link.url) {
-                return null
-              }
+          <div className='notion-nav-links'>
+            {navigationLinks
+              ?.map((link, index) => {
+                if (!link.anchorId && !link.pageId && !link.url) {
+                  return null
+                }
 
-              if (link.anchorId) {
-                return (
-                  <components.PageLink
-                    href={`/${link.anchorId}`}
-                    key={index}
-                    className={cs(styles.navLink, 'breadcrumb', 'button')}
-                  >
-                    {link.title}
-                  </components.PageLink>
-                );
-              } else if (link.pageId) {
-                return (
-                  <components.PageLink
-                    href={mapPageUrl(link.pageId)}
-                    key={index}
-                    className={cs(styles.navLink, 'breadcrumb', 'button')}
-                  >
-                    {link.title}
-                  </components.PageLink>
-                )
-              } else {
-                return (
-                  <components.Link
-                    href={link.url}
-                    key={index}
-                    className={cs(styles.navLink, 'breadcrumb', 'button')}
-                  >
-                    {link.title}
-                  </components.Link>
-                )
-              }
-            })
-            .filter(Boolean)}
+                if (link.anchorId) {
+                  return (
+                    <components.PageLink
+                      href={`/${link.anchorId}`}
+                      key={index}
+                      className={cs(styles.navLink, 'breadcrumb', 'button')}
+                    >
+                      {link.title}
+                    </components.PageLink>
+                  );
+                } else if (link.pageId) {
+                  return (
+                    <components.PageLink
+                      href={mapPageUrl(link.pageId)}
+                      key={index}
+                      className={cs(styles.navLink, 'breadcrumb', 'button')}
+                    >
+                      {link.title}
+                    </components.PageLink>
+                  )
+                } else {
+                  return (
+                    <components.Link
+                      href={link.url}
+                      key={index}
+                      className={cs(styles.navLink, 'breadcrumb', 'button')}
+                    >
+                      {link.title}
+                    </components.Link>
+                  )
+                }
+              })
+              .filter(Boolean)}
+          </div>
 
           <ToggleThemeButton />
 
