@@ -302,6 +302,14 @@
   fill: var(--fg-color);
 }
 
+.notion-callout-text {
+  overflow: hidden;
+}
+
+.notion-file-info {
+  max-width: 95%;
+}
+
 @media only screen and (max-width: 920px) {
   .index-page.notion-page {
     padding-left: 2vw;
