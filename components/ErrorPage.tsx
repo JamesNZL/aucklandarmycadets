@@ -1,10 +1,12 @@
 import * as React from 'react'
 import { PageHead } from './PageHead'
 
+import * as config from 'lib/config';
+
 import styles from './styles.module.css'
 
 export const ErrorPage: React.FC<{ statusCode: number }> = ({ statusCode }) => {
-  const title = 'Error'
+  const title = `Error | ${config.name}`
 
   return (
     <>
