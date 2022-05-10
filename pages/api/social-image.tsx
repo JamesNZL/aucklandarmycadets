@@ -217,7 +217,7 @@ body {
 }
 
 .author {
-  font-size: 1.65em;
+  font-size: 1.6em;
 }
 
 .author-image {
