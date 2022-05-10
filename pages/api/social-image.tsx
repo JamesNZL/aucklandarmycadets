@@ -10,6 +10,7 @@ import {
 } from 'notion-utils'
 import { PageBlock } from 'notion-types'
 
+import { segoeUi, segoeUiSemibold } from 'lib/fonts'
 import { notion } from 'lib/notion-api'
 import { mapImageUrl } from 'lib/map-image-url'
 import * as config from 'lib/config'
@@ -22,7 +23,7 @@ import * as config from 'lib/config'
  * that would've been passed to puppeteer. This makes it much easier to develop
  * and debug issues locally.
  */
-const debugInspectHtml = false
+const debugInspectHtml = true
 
 export default withOGImage<'query', 'id'>({
   template: {
@@ -151,6 +152,20 @@ export default withOGImage<'query', 'id'>({
 })
 
 const style = `
+@font-face {
+  font-family: 'Segoe UI';
+  font-style: normal;
+  font-weight: normal;
+  src: url(data:font/woff2;charset=utf-8;base64,${segoeUi}) format('woff2');
+}
+
+@font-face {
+  font-family: 'Segoe UI';
+  font-style: normal;
+  font-weight: 100 900;
+  src: url(data:font/woff2;charset=utf-8;base64,${segoeUiSemibold}) format('woff2');
+}
+
 :root {
   --padding: 8vmin;
 }
@@ -161,7 +176,7 @@ const style = `
 
 body {
   font-family: 'Segoe UI', sans-serif;
-  font-weight: 800;
+  font-weight: 600;
   padding: 0;
   margin: 0;
 }
@@ -203,6 +218,7 @@ body {
 .title {
   font-size: 4.6em;
   line-height: 1.3;
+  font-weight: 700;
 }
 
 .metadata {
