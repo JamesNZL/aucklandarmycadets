@@ -161,7 +161,7 @@ const style = `
 
 body {
   font-family: 'Segoe UI', sans-serif;
-  font-weight: 600;
+  font-weight: 800;
   padding: 0;
   margin: 0;
 }
@@ -201,7 +201,7 @@ body {
 }
 
 .title {
-  font-size: 4em;
+  font-size: 4.6em;
   line-height: 1.3;
 }
 
@@ -215,7 +215,7 @@ body {
 }
 
 .author {
-  font-size: 1.6em;
+  font-size: 1.5em;
 }
 
 .author-image {
