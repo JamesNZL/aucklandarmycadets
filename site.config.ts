@@ -49,7 +49,8 @@ export default siteConfig({
     '2076120a98a24d91b81c2fd4799d8b87',
     '687e21f7605047dd9ab0a971b81f550f',
     'b9644ebf38f742329d3f38b600d07e51',
-    'f5acad4db5894467a574b88caa3f5d5c'
+    'f5acad4db5894467a574b88caa3f5d5c',
+    '8179d6fd04064574a211bf5b0f624b9e'
   ],
 
   // whether to use the default notion navigation style or a custom one with links to
