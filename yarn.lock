@@ -3815,6 +3815,8 @@
   "version" "2.2.1"
 
 "tar-fs@*":
+  "integrity" "sha512-V0r2Y9scmbDRLCNex/+hYzvp/zyYjvFbHPNgVTKfQvVrb6guiE/fxP+XblDNR011utopbkex2nM4dHNV6GDsng=="
+  "resolved" "https://registry.npmjs.org/tar-fs/-/tar-fs-2.1.1.tgz"
   "version" "2.1.1"
   dependencies:
     "chownr" "^1.1.1"
