@@ -160,9 +160,7 @@ const style = `
 }
 
 body {
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-    'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
-    'Droid Sans', 'Helvetica Neue', 'Noto Sans', sans-serif;
+  font-family: 'Segoe UI', sans-serif;
   font-weight: 600;
   padding: 0;
   margin: 0;
