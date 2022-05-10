@@ -203,7 +203,7 @@ body {
 }
 
 .title {
-  font-size: 3.2em;
+  font-size: 4em;
   line-height: 1.3;
 }
 
@@ -217,7 +217,7 @@ body {
 }
 
 .author {
-  font-size: 1.75em;
+  font-size: 1.65em;
 }
 
 .author-image {
