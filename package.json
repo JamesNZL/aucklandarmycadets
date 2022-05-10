@@ -9,6 +9,9 @@
   ],
   "repository": "aucklandarmycadets/aucklandarmycadets",
   "license": "MIT",
+  "engines": {
+    "node": "^14.17"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
