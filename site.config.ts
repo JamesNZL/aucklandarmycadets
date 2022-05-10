@@ -38,7 +38,9 @@ export default siteConfig({
   //   '/foo': '067dd719a912471ea9a3ac10710e7fdf',
   //   '/bar': '0be6efce9daf42688f65c76b89f8eb27'
   // }
-  pageUrlOverrides: null,
+  pageUrlOverrides: {
+    '/covid-19': '8179d6fd04064574a211bf5b0f624b9e'
+  },
 
   exposedRouteIds: [
     'd9e4d2d799734db09a547021f200d5bc',
