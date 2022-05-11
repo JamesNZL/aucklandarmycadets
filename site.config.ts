@@ -10,7 +10,7 @@ export default siteConfig({
 
   // basic site info (required)
   name: 'City of Auckland Cadet Unit',
-  domain: 'aucklandarmycadets.com',
+  domain: 'www.aucklandarmycadets.com',
   author: 'City of Auckland Cadet Unit',
 
   // open graph metadata (optional)
