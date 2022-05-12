@@ -6,7 +6,7 @@ export default siteConfig({
 
   // if you want to restrict pages to a single notion workspace (optional)
   // (this should be a Notion ID; see the docs for how to extract this)
-  rootNotionSpaceId: '3b5f4a31dd744bd4981a1d29fb5ee924',
+  rootNotionSpaceId: null,
 
   // basic site info (required)
   name: 'City of Auckland Cadet Unit',
@@ -14,7 +14,7 @@ export default siteConfig({
   author: 'City of Auckland Cadet Unit',
 
   // open graph metadata (optional)
-  description: 'The City of Auckland Cadet Unit is part of the New Zealand Cadet Forces (NZCF), a military-styled, volunteer, youth organisation.',
+  description: 'We are part of the New Zealand Cadet Forces (NZCF) — a military-styled, volunteer, youth organisation for NZ\'s successful leaders of tomorrow.',
 
   // default notion icon and cover images for site-wide consistency (optional)
   // page-specific values will override these site-wide defaults
@@ -39,7 +39,8 @@ export default siteConfig({
   //   '/bar': '0be6efce9daf42688f65c76b89f8eb27'
   // }
   pageUrlOverrides: {
-    '/covid-19': '8179d6fd04064574a211bf5b0f624b9e'
+    '/covid-19': '8179d6fd04064574a211bf5b0f624b9e',
+    '/reference': '164cbd74c9104dc9a6e5c1698e2bc96f'
   },
 
   exposedRouteIds: [
@@ -52,7 +53,8 @@ export default siteConfig({
     '687e21f7605047dd9ab0a971b81f550f',
     'b9644ebf38f742329d3f38b600d07e51',
     'f5acad4db5894467a574b88caa3f5d5c',
-    '8179d6fd04064574a211bf5b0f624b9e'
+    '8179d6fd04064574a211bf5b0f624b9e',
+    '164cbd74c9104dc9a6e5c1698e2bc96f'
   ],
 
   // whether to use the default notion navigation style or a custom one with links to
