@@ -259,9 +259,7 @@
   border-left: 4px solid #67bdfc;
 }
 
-.notion-h1,
-.notion-h2,
-.notion-h3 {
+.notion-h {
   margin-bottom: 0.25em;
   text-transform: uppercase;
   font-weight: 900;
@@ -273,9 +271,7 @@
   font-size: 2.125em;
 }
 
-.notion-h1+.notion-hr,
-.notion-h2+.notion-hr,
-.notion-h3+.notion-hr {
+.notion-h+.notion-hr {
   display: none;
 }
 
