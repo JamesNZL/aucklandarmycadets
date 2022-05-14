@@ -66,11 +66,6 @@
   --notion-header-height: 54px;
 }
 
-.notion-nav-header>.breadcrumbs>a.breadcrumb:not([href]),
-.notion-nav-header>.breadcrumbs>a.breadcrumb:not([href])+.spacer {
-  display: none;
-}
-
 .notion-frame {
   padding: 0;
 }

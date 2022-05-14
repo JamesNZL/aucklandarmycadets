@@ -37,6 +37,11 @@ export const NotionPageHeader: React.FC<{
 }> = ({ block }) => {
   const { components, mapPageUrl } = useNotionContext()
 
+  React.useEffect(() => {
+    [...document.querySelectorAll('.breadcrumbs>a.breadcrumb:not([href]), .breadcrumbs>a.breadcrumb:not([href])+.spacer')]
+      .forEach(element => element.remove())
+  }, [])
+
   if (navigationStyle === 'default') {
     return <Header block={block} />
   }
