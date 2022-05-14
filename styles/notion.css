@@ -83,12 +83,6 @@
   font-weight: 700;
 }
 
-.index-page .notion-h1 {
-  margin-inline: auto;
-  text-align: center;
-  font-size: 2.125em;
-}
-
 .index-page .notion-page-content-inner :first-child.notion-h1 {
   visibility: hidden;
   position: absolute;
@@ -271,6 +265,12 @@
   margin-bottom: 0.25em;
   text-transform: uppercase;
   font-weight: 900;
+}
+
+.notion-h1 {
+  margin-inline: auto;
+  text-align: center;
+  font-size: 2.125em;
 }
 
 .notion-h1 .notion-hash-link svg {
