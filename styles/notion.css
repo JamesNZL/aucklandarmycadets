@@ -312,6 +312,10 @@
   max-width: 100%;
 }
 
+.notion-toggle>summary>.notion-h {
+  margin: 0.25em auto;
+}
+
 .notion-callout-text {
   overflow: hidden;
 }
