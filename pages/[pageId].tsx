@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { isDev, domain } from 'lib/config'
+import { isDev, domain, pageUrlOverrides } from 'lib/config'
 import { getSiteMap } from 'lib/get-site-map'
 import { resolveNotionPage } from 'lib/resolve-notion-page'
 import { NotionPage } from 'components'
@@ -31,11 +31,18 @@ export async function getStaticPaths() {
   const siteMap = await getSiteMap()
 
   const staticPaths = {
-    paths: Object.keys(siteMap.canonicalPageMap).map((pageId) => ({
-      params: {
-        pageId
-      }
-    })),
+    paths: [
+      ...Object.keys(siteMap.canonicalPageMap).map((pageId) => ({
+        params: {
+          pageId
+        }
+      })),
+      ...Object.keys(pageUrlOverrides).map((pageId) => ({
+        params: {
+          pageId
+        }
+      }))
+    ],
     // paths: [],
     fallback: true
   }
