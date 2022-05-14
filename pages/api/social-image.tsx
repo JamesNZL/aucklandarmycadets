@@ -6,7 +6,8 @@ import {
   getBlockIcon,
   getPageProperty,
   isUrl,
-  parsePageId
+  parsePageId,
+  uuidToId
 } from 'notion-utils'
 import { PageBlock } from 'notion-types'
 
@@ -32,6 +33,10 @@ export default withOGImage<'query', 'id'>({
 
       if (!pageId) {
         throw new Error('Invalid notion page id')
+      }
+
+      else if (config.exposedRouteIds.length && !config.exposedRouteIds.includes(uuidToId(pageId))) {
+        throw new Error('Unauthorised request to page id')
       }
 
       const recordMap = await notion.getPage(pageId)
