@@ -273,6 +273,12 @@
   font-size: 2.125em;
 }
 
+.notion-h1+.notion-hr,
+.notion-h2+.notion-hr,
+.notion-h3+.notion-hr {
+  display: none;
+}
+
 .notion-h1 .notion-hash-link svg {
   margin-bottom: 0.225rem;
 }
