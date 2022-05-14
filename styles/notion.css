@@ -165,6 +165,17 @@
   gap: 0.5rem;
 }
 
+.notion-header .breadcrumbs:not(.notion-nav-header-rhs) {
+  overflow: hidden;
+  flex-wrap: wrap-reverse;
+  height: 32px;
+  align-content: flex-end;
+}
+
+.notion-header .breadcrumbs.notion-nav-header-rhs {
+  min-width: fit-content;
+}
+
 @media only screen and (max-width: 960px) {
   .notion-nav-links {
     display: none;
