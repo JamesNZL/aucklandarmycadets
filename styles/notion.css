@@ -312,6 +312,10 @@
   fill: var(--fg-color);
 }
 
+.notion-toggle {
+  max-width: 100%;
+}
+
 .notion-callout-text {
   overflow: hidden;
 }
