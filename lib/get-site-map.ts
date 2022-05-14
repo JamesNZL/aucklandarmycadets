@@ -30,8 +30,12 @@ async function getAllPagesImpl(
   rootNotionSpaceId: string
 ): Promise<Partial<types.SiteMap>> {
   const getPage = async (pageId: string, ...args) => {
-    if (config.exposedRouteIds.length && !config.exposedRouteIds.includes(uuidToId(pageId))) return null
-    console.log('\nnotion getPage', uuidToId(pageId))
+    pageId = uuidToId(pageId)
+
+    if (config.exposedRouteIds.length && !config.exposedRouteIds.includes(pageId)) return null
+    else if (pageId === config.rootNotionPageId) return null;
+
+    console.log('\nnotion getPage', pageId)
     return notion.getPage(pageId, ...args)
   }
 
