@@ -6,7 +6,7 @@ export default siteConfig({
 
   // if you want to restrict pages to a single notion workspace (optional)
   // (this should be a Notion ID; see the docs for how to extract this)
-  rootNotionSpaceId: null,
+  rootNotionSpaceId: '3b5f4a31dd744bd4981a1d29fb5ee924',
 
   // basic site info (required)
   name: 'City of Auckland Cadet Unit',
@@ -40,7 +40,7 @@ export default siteConfig({
   // }
   pageUrlOverrides: {
     '/covid-19': '8179d6fd04064574a211bf5b0f624b9e',
-    '/reference': '164cbd74c9104dc9a6e5c1698e2bc96f'
+    '/reference': '6aadca610be14a0197dd2e49b34168bf'
   },
 
   exposedRouteIds: [
@@ -54,7 +54,7 @@ export default siteConfig({
     'b9644ebf38f742329d3f38b600d07e51',
     'f5acad4db5894467a574b88caa3f5d5c',
     '8179d6fd04064574a211bf5b0f624b9e',
-    '164cbd74c9104dc9a6e5c1698e2bc96f'
+    '6aadca610be14a0197dd2e49b34168bf'
   ],
 
   // whether to use the default notion navigation style or a custom one with links to
