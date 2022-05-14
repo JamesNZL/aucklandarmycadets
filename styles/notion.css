@@ -308,7 +308,8 @@
   fill: var(--fg-color);
 }
 
-.notion-toggle {
+.notion-toggle,
+.notion-list {
   max-width: 100%;
 }
 
