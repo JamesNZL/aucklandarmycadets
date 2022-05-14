@@ -37,7 +37,7 @@ export const NotionPageHeader: React.FC<{
 }> = ({ block }) => {
   const { components, mapPageUrl } = useNotionContext()
 
-  React.useLayoutEffect(() => {
+  React.useEffect(() => {
     // TODO: there has to be a better way to do this?
     [...document.querySelectorAll('.breadcrumbs>a.breadcrumb:not([href]), .breadcrumbs>a.breadcrumb:not([href])+.spacer')]
       .forEach(element => element.remove())
