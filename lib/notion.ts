@@ -1,7 +1,7 @@
 import pMap from 'p-map'
 import pMemoize from 'p-memoize'
 import { ExtendedRecordMap, SearchParams, SearchResults } from 'notion-types'
-import { mergeRecordMaps } from 'notion-utils'
+import { mergeRecordMaps, uuidToId } from 'notion-utils'
 
 import { notion } from './notion-api'
 import { getPreviewImageMap } from './preview-images'
@@ -37,7 +37,12 @@ const getNavigationLinkPages = pMemoize(
   }
 )
 
-export async function getPage(pageId: string): Promise<ExtendedRecordMap> {
+export const UNAUTHORISED: unique symbol = Symbol('Unauthorised');
+
+export async function getPage(pageId: string, exposedPageIds: string[]): Promise<ExtendedRecordMap | typeof UNAUTHORISED> {
+  // don't bother fetching the page if it's not an exposed route
+  if (exposedPageIds.length && !exposedPageIds.includes(uuidToId(pageId))) return UNAUTHORISED;
+
   let recordMap = await notion.getPage(pageId)
 
   if (navigationStyle !== 'default') {
@@ -57,7 +62,7 @@ export async function getPage(pageId: string): Promise<ExtendedRecordMap> {
 
   if (isPreviewImageSupportEnabled) {
     const previewImageMap = await getPreviewImageMap(recordMap)
-    ;(recordMap as any).preview_images = previewImageMap
+      ; (recordMap as any).preview_images = previewImageMap
   }
 
   return recordMap

@@ -150,7 +150,8 @@ export const NotionPage: React.FC<types.PageProps> = ({
   site,
   recordMap,
   error,
-  pageId
+  pageId,
+  exposedRouteIds
 }) => {
   const router = useRouter()
   const lite = useSearchParam('lite')
@@ -183,8 +184,8 @@ export const NotionPage: React.FC<types.PageProps> = ({
     if (lite) params.lite = lite
 
     const searchParams = new URLSearchParams(params)
-    return mapPageUrl(site, recordMap, searchParams)
-  }, [site, recordMap, lite])
+    return mapPageUrl(site, recordMap, exposedRouteIds, searchParams)
+  }, [site, recordMap, exposedRouteIds, lite])
 
   const keys = Object.keys(recordMap?.block || {})
   const block = recordMap?.block?.[keys[0]]?.value
@@ -235,6 +236,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
     g.pageId = pageId
     g.recordMap = recordMap
     g.block = block
+    g.exposedRouteIds = exposedRouteIds
   }
 
   const canonicalPageUrl =

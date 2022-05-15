@@ -4,12 +4,14 @@ import { ExtendedRecordMap } from 'notion-types'
 import * as acl from './acl'
 import { pageUrlOverrides, pageUrlAdditions, environment, site } from './config'
 import { db } from './db'
-import { getPage } from './notion'
+import { getPage, UNAUTHORISED } from './notion'
 import { getSiteMap } from './get-site-map'
+import { getExposedRouteIds } from './get-exposed-routes'
 
 export async function resolveNotionPage(domain: string, rawPageId?: string) {
   let pageId: string
-  let recordMap: ExtendedRecordMap
+  let recordMap: ExtendedRecordMap | typeof UNAUTHORISED
+  const exposedRouteIds = await getExposedRouteIds();
 
   if (rawPageId && rawPageId !== 'index') {
     pageId = parsePageId(rawPageId)
@@ -44,7 +46,7 @@ export async function resolveNotionPage(domain: string, rawPageId?: string) {
     }
 
     if (pageId) {
-      recordMap = await getPage(pageId)
+      recordMap = await getPage(pageId, exposedRouteIds)
     } else {
       // handle mapping of user-friendly canonical page paths to Notion page IDs
       // e.g., /developer-x-entrepreneur versus /71201624b204481f862630ea25ce62fe
@@ -56,7 +58,7 @@ export async function resolveNotionPage(domain: string, rawPageId?: string) {
         // cached aggressively
         // recordMap = siteMap.pageMap[pageId]
 
-        recordMap = await getPage(pageId)
+        recordMap = await getPage(pageId, exposedRouteIds)
 
         if (useUriToPageIdCache) {
           try {
@@ -83,9 +85,16 @@ export async function resolveNotionPage(domain: string, rawPageId?: string) {
     pageId = site.rootNotionPageId
 
     console.log(site)
-    recordMap = await getPage(pageId)
+    recordMap = await getPage(pageId, exposedRouteIds)
   }
 
-  const props = { site, recordMap, pageId }
+  if (recordMap === UNAUTHORISED) return {
+    error: {
+      statusCode: 404,
+      message: `You are currently not authorised to view '${pageId}'.`
+    }
+  }
+
+  const props = { site, recordMap, pageId, exposedRouteIds }
   return { ...props, ...(await acl.pageAcl(props)) }
 }

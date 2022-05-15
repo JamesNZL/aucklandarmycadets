@@ -14,6 +14,7 @@ export interface PageProps {
   recordMap?: ExtendedRecordMap
   pageId?: string
   error?: PageError
+  exposedRouteIds?: string[]
 }
 
 export interface Site {

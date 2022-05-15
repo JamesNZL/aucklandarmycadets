@@ -4,6 +4,7 @@ import { getAllPagesInSpace, uuidToId } from 'notion-utils'
 import { includeNotionIdInUrls } from './config'
 import { notion } from './notion-api'
 import { getCanonicalPageId } from './get-canonical-page-id'
+import { getExposedRouteIds } from './get-exposed-routes'
 import * as config from './config'
 import * as types from './types'
 
@@ -29,8 +30,10 @@ async function getAllPagesImpl(
   rootNotionPageId: string,
   rootNotionSpaceId: string
 ): Promise<Partial<types.SiteMap>> {
+  const exposedRouteIds = await getExposedRouteIds();
+
   const getPage = async (pageId: string, ...args) => {
-    if (config.exposedRouteIds.length && !config.exposedRouteIds.includes(uuidToId(pageId))) return null
+    if (exposedRouteIds.length && !exposedRouteIds.includes(uuidToId(pageId))) return null
     console.log('\nnotion getPage', uuidToId(pageId))
     return notion.getPage(pageId, ...args)
   }

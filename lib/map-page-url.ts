@@ -2,7 +2,7 @@ import { ExtendedRecordMap } from 'notion-types'
 import { uuidToId, parsePageId } from 'notion-utils'
 
 import { Site } from './types'
-import { includeNotionIdInUrls, exposedRouteIds } from './config'
+import { includeNotionIdInUrls } from './config'
 import { getCanonicalPageId } from './get-canonical-page-id'
 
 // include UUIDs in page URLs during local development but not in production
@@ -10,7 +10,7 @@ import { getCanonicalPageId } from './get-canonical-page-id'
 const uuid = !!includeNotionIdInUrls
 
 export const mapPageUrl =
-  (site: Site, recordMap: ExtendedRecordMap, searchParams: URLSearchParams) =>
+  (site: Site, recordMap: ExtendedRecordMap, exposedRouteIds: string[], searchParams: URLSearchParams) =>
   (pageId = '') => {
     const pageUuid = parsePageId(pageId, { uuid: true })
 

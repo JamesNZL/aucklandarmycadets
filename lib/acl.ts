@@ -1,12 +1,12 @@
 import { uuidToId } from 'notion-utils'
 
-import { exposedRouteIds } from './config'
 import { PageProps } from './types'
 
 export async function pageAcl({
   site,
   recordMap,
-  pageId
+  pageId,
+  exposedRouteIds
 }: PageProps): Promise<PageProps> {
   if (!site) {
     return {

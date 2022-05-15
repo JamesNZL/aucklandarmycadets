@@ -23,7 +23,7 @@ export interface SiteConfig {
   pageUrlOverrides?: types.PageUrlOverridesMap
   pageUrlAdditions?: types.PageUrlOverridesMap
 
-  exposedRouteIds?: string[]
+  exposedRouteDatabaseId?: string
 
   navigationStyle?: types.NavigationStyle
   navigationLinks?: Array<NavigationLink>

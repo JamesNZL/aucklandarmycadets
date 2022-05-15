@@ -43,7 +43,7 @@ export const pageUrlAdditions = cleanPageUrlMap(
 
 export const inversePageUrlOverrides = invertPageUrlOverrides(pageUrlOverrides)
 
-export const exposedRouteIds: string[] = getSiteConfig('exposedRouteIds', [])
+export const exposedRouteDatabaseId: string | null = getSiteConfig('exposedRouteDatabaseId', null)
 
 export const environment = process.env.NODE_ENV || 'development'
 export const isDev = environment === 'development'
