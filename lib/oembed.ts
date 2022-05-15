@@ -1,6 +1,7 @@
 import { parsePageId, getPageTitle } from 'notion-utils'
-import { getPage } from './notion'
+import { getPage, UNAUTHORISED } from './notion'
 import * as config from './config'
+import { queryExposedRoutes } from './get-exposed-routes'
 
 export const oembed = async ({
   url,
@@ -21,7 +22,11 @@ export const oembed = async ({
 
   // TODO: handle errors gracefully
 
-  const page = await getPage(pageId)
+  const { exposedRouteIds } = await queryExposedRoutes();
+
+  const page = await getPage(pageId, exposedRouteIds)
+  if (page === UNAUTHORISED) return null
+
   const pageTitle = getPageTitle(page)
   if (pageTitle) title = pageTitle
 
