@@ -75,6 +75,19 @@ export const PageHead: React.FC<
       <meta property='og:title' content={title} />
       <meta name='twitter:title' content={title} />
       <title>{title}</title>
+
+      <script async src='https://www.googletagmanager.com/gtag/js?id=UA-228761608-1' />
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'UA-228761608-1');
+`
+        }}
+      />
     </Head>
   )
 }
