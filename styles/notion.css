@@ -572,21 +572,6 @@
       #b1998d 85.29%);
 }
 
-.dark-mode .notion-red_background,
-.dark-mode .notion-pink_background,
-.dark-mode .notion-blue_background,
-.dark-mode .notion-purple_background,
-.dark-mode .notion-teal_background,
-.dark-mode .notion-yellow_background,
-.dark-mode .notion-orange_background,
-.dark-mode .notion-brown_background,
-.dark-mode .notion-gray_background {
-  padding: 0;
-  margin: 0;
-  border-radius: 0;
-  background-image: none !important;
-}
-
 /* if you don't want rounded page icon images, remove this */
 .notion-page-icon-hero.notion-page-icon-image {
   border-radius: 50%;
