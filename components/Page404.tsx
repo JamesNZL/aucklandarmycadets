@@ -8,7 +8,7 @@ import { PageHead } from './PageHead'
 import styles from './styles.module.css'
 
 export const Page404: React.FC<types.PageProps> = ({ site }) => {
-  const title = site?.name || `Page Not Found | ${config.name}`
+  const title = site?.name || `404 | ${config.name}`
 
   return (
     <>
