@@ -1,8 +1,8 @@
 import { uuidToId } from 'notion-utils'
 
 import { notion } from './notion-api'
-import { rootNotionPageId, exposedRouteDatabaseId } from './config';
-import { PageUrlOverridesMap } from './types'
+import { rootNotionPageId, exposedRouteDatabaseId, cleanPageUrlMap } from './config';
+import { PageUrlOverridesInverseMap, PageUrlOverridesMap } from './types'
 
 const prependSlash = (slug) => (slug[0] === '/') ? slug : `/${slug}`
 
@@ -54,5 +54,25 @@ export async function getExposedRouteIds(): Promise<string[]> {
 }
 
 export async function getPageUrlOverrides(): Promise<PageUrlOverridesMap> {
-	return (await queryDatabase()).pageUrlOverrides
+	return cleanPageUrlMap(
+		(await queryDatabase()).pageUrlOverrides,
+		{ label: 'pageUrlOverrides' }
+	)
+}
+
+export async function getInversePageUrlOverrides(): Promise<PageUrlOverridesInverseMap> {
+	return invertPageUrlOverrides(await getPageUrlOverrides())
+}
+
+function invertPageUrlOverrides(
+	pageUrlOverrides: PageUrlOverridesMap
+): PageUrlOverridesInverseMap {
+	return Object.keys(pageUrlOverrides).reduce((acc, uri) => {
+		const pageId = pageUrlOverrides[uri]
+
+		return {
+			...acc,
+			[pageId]: uri
+		}
+	}, {})
 }

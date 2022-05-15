@@ -4,7 +4,7 @@ import { getAllPagesInSpace, uuidToId } from 'notion-utils'
 import { includeNotionIdInUrls } from './config'
 import { notion } from './notion-api'
 import { getCanonicalPageId } from './get-canonical-page-id'
-import { getExposedRouteIds } from './get-exposed-routes'
+import { getExposedRouteIds, getInversePageUrlOverrides } from './get-exposed-routes'
 import * as config from './config'
 import * as types from './types'
 
@@ -31,6 +31,7 @@ async function getAllPagesImpl(
   rootNotionSpaceId: string
 ): Promise<Partial<types.SiteMap>> {
   const exposedRouteIds = await getExposedRouteIds();
+  const inversePageUrlOverrides = await getInversePageUrlOverrides();
 
   const getPage = async (pageId: string, ...args) => {
     if (exposedRouteIds.length && !exposedRouteIds.includes(uuidToId(pageId))) return null
@@ -51,7 +52,7 @@ async function getAllPagesImpl(
         throw new Error(`Error loading page "${pageId}"`)
       }
 
-      const canonicalPageId = getCanonicalPageId(pageId, recordMap, {
+      const canonicalPageId = getCanonicalPageId(pageId, recordMap, inversePageUrlOverrides, {
         uuid
       })
 

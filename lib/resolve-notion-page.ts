@@ -2,16 +2,20 @@ import { parsePageId } from 'notion-utils'
 import { ExtendedRecordMap } from 'notion-types'
 
 import * as acl from './acl'
-import { pageUrlOverrides, pageUrlAdditions, environment, site } from './config'
+import { pageUrlAdditions, environment, site } from './config'
 import { db } from './db'
 import { getPage, UNAUTHORISED } from './notion'
 import { getSiteMap } from './get-site-map'
-import { getExposedRouteIds } from './get-exposed-routes'
+import { getExposedRouteIds, getInversePageUrlOverrides, getPageUrlOverrides } from './get-exposed-routes'
 
 export async function resolveNotionPage(domain: string, rawPageId?: string) {
   let pageId: string
   let recordMap: ExtendedRecordMap | typeof UNAUTHORISED
   const exposedRouteIds = await getExposedRouteIds();
+
+  // TODO: let's not query twice (:
+  const pageUrlOverrides = await getPageUrlOverrides();
+  const inversePageUrlOverrides = await getInversePageUrlOverrides();
 
   if (rawPageId && rawPageId !== 'index') {
     pageId = parsePageId(rawPageId)
@@ -95,6 +99,6 @@ export async function resolveNotionPage(domain: string, rawPageId?: string) {
     }
   }
 
-  const props = { site, recordMap, pageId, exposedRouteIds }
+  const props = { site, recordMap, pageId, exposedRouteIds, inversePageUrlOverrides }
   return { ...props, ...(await acl.pageAcl(props)) }
 }

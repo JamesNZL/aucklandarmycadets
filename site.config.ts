@@ -38,11 +38,7 @@ export default siteConfig({
   //   '/foo': '067dd719a912471ea9a3ac10710e7fdf',
   //   '/bar': '0be6efce9daf42688f65c76b89f8eb27'
   // }
-  // any overrides defined in the exposedRouteDatabase take precedence
-  pageUrlOverrides: {
-    '/covid-19': '8179d6fd04064574a211bf5b0f624b9e',
-    '/reference': '6aadca610be14a0197dd2e49b34168bf'
-  },
+  // define these overrides in the exposedRouteDatabase
 
   exposedRouteDatabaseId: '26d0c0dad7a34b8e81766d800c3b174f',
 

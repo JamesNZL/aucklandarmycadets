@@ -10,7 +10,6 @@ import posthog from 'posthog-js'
 import { getEnv, getSiteConfig } from './get-config-value'
 import { NavigationLink } from './site-config'
 import {
-  PageUrlOverridesInverseMap,
   PageUrlOverridesMap,
   NavigationStyle,
   Site
@@ -31,17 +30,10 @@ export const rootNotionSpaceId: string | null = parsePageId(
   { uuid: true }
 )
 
-export const pageUrlOverrides = cleanPageUrlMap(
-  getSiteConfig('pageUrlOverrides', {}) || {},
-  { label: 'pageUrlOverrides' }
-)
-
 export const pageUrlAdditions = cleanPageUrlMap(
   getSiteConfig('pageUrlAdditions', {}) || {},
   { label: 'pageUrlAdditions' }
 )
-
-export const inversePageUrlOverrides = invertPageUrlOverrides(pageUrlOverrides)
 
 export const exposedRouteDatabaseId: string | null = getSiteConfig('exposedRouteDatabaseId', null)
 
@@ -150,7 +142,7 @@ export const posthogConfig: posthog.Config = {
   api_host: 'https://app.posthog.com'
 }
 
-function cleanPageUrlMap(
+export function cleanPageUrlMap(
   pageUrlMap: PageUrlOverridesMap,
   {
     label
@@ -181,19 +173,6 @@ function cleanPageUrlMap(
     return {
       ...acc,
       [path]: uuid
-    }
-  }, {})
-}
-
-function invertPageUrlOverrides(
-  pageUrlOverrides: PageUrlOverridesMap
-): PageUrlOverridesInverseMap {
-  return Object.keys(pageUrlOverrides).reduce((acc, uri) => {
-    const pageId = pageUrlOverrides[uri]
-
-    return {
-      ...acc,
-      [pageId]: uri
     }
   }, {})
 }

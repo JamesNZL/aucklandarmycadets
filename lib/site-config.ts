@@ -20,7 +20,6 @@ export interface SiteConfig {
   isSearchEnabled?: boolean
 
   includeNotionIdInUrls?: boolean
-  pageUrlOverrides?: types.PageUrlOverridesMap
   pageUrlAdditions?: types.PageUrlOverridesMap
 
   exposedRouteDatabaseId?: string

@@ -1,7 +1,7 @@
 import { ExtendedRecordMap } from 'notion-types'
 import { uuidToId, parsePageId } from 'notion-utils'
 
-import { Site } from './types'
+import { PageUrlOverridesInverseMap, Site } from './types'
 import { includeNotionIdInUrls } from './config'
 import { getCanonicalPageId } from './get-canonical-page-id'
 
@@ -10,7 +10,7 @@ import { getCanonicalPageId } from './get-canonical-page-id'
 const uuid = !!includeNotionIdInUrls
 
 export const mapPageUrl =
-  (site: Site, recordMap: ExtendedRecordMap, exposedRouteIds: string[], searchParams: URLSearchParams) =>
+  (site: Site, recordMap: ExtendedRecordMap, exposedRouteIds: string[], inversePageUrlOverrides: PageUrlOverridesInverseMap, searchParams: URLSearchParams) =>
   (pageId = '') => {
     const pageUuid = parsePageId(pageId, { uuid: true })
 
@@ -22,21 +22,21 @@ export const mapPageUrl =
       return createUrl('/', searchParams)
     } else {
       return createUrl(
-        `/${getCanonicalPageId(pageUuid, recordMap, { uuid })}`,
+        `/${getCanonicalPageId(pageUuid, recordMap, inversePageUrlOverrides, { uuid })}`,
         searchParams
       )
     }
   }
 
 export const getCanonicalPageUrl =
-  (site: Site, recordMap: ExtendedRecordMap) =>
+  (site: Site, recordMap: ExtendedRecordMap, inversePageUrlOverrides: PageUrlOverridesInverseMap) =>
   (pageId = '') => {
     const pageUuid = parsePageId(pageId, { uuid: true })
 
     if (uuidToId(pageId) === site.rootNotionPageId) {
       return `https://${site.domain}`
     } else {
-      return `https://${site.domain}/${getCanonicalPageId(pageUuid, recordMap, {
+      return `https://${site.domain}/${getCanonicalPageId(pageUuid, recordMap, inversePageUrlOverrides, {
         uuid
       })}`
     }

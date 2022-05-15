@@ -3,12 +3,12 @@ import {
   parsePageId,
   getCanonicalPageId as getCanonicalPageIdImpl
 } from 'notion-utils'
-
-import { inversePageUrlOverrides } from './config'
+import { PageUrlOverridesInverseMap } from './types'
 
 export function getCanonicalPageId(
   pageId: string,
   recordMap: ExtendedRecordMap,
+  inversePageUrlOverrides: PageUrlOverridesInverseMap,
   { uuid = true }: { uuid?: boolean } = {}
 ): string | null {
   const cleanPageId = parsePageId(pageId, { uuid: false })

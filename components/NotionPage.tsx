@@ -151,7 +151,8 @@ export const NotionPage: React.FC<types.PageProps> = ({
   recordMap,
   error,
   pageId,
-  exposedRouteIds
+  exposedRouteIds,
+  inversePageUrlOverrides
 }) => {
   const router = useRouter()
   const lite = useSearchParam('lite')
@@ -184,8 +185,8 @@ export const NotionPage: React.FC<types.PageProps> = ({
     if (lite) params.lite = lite
 
     const searchParams = new URLSearchParams(params)
-    return mapPageUrl(site, recordMap, exposedRouteIds, searchParams)
-  }, [site, recordMap, exposedRouteIds, lite])
+    return mapPageUrl(site, recordMap, exposedRouteIds, inversePageUrlOverrides, searchParams)
+  }, [site, recordMap, exposedRouteIds, inversePageUrlOverrides, lite])
 
   const keys = Object.keys(recordMap?.block || {})
   const block = recordMap?.block?.[keys[0]]?.value
@@ -240,7 +241,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
   }
 
   const canonicalPageUrl =
-    !config.isDev && getCanonicalPageUrl(site, recordMap)(pageId)
+    !config.isDev && getCanonicalPageUrl(site, recordMap, inversePageUrlOverrides)(pageId)
 
   const socialImage = mapImageUrl(
     getPageProperty<string>('Social Image', block, recordMap) ||

@@ -15,6 +15,7 @@ export interface PageProps {
   pageId?: string
   error?: PageError
   exposedRouteIds?: string[]
+  inversePageUrlOverrides?: PageUrlOverridesInverseMap
 }
 
 export interface Site {
