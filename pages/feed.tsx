@@ -12,7 +12,7 @@ import * as config from 'lib/config'
 import { getSiteMap } from 'lib/get-site-map'
 import { getCanonicalPageUrl } from 'lib/map-page-url'
 import { getSocialImageUrl } from 'lib/get-social-image-url'
-import { getInversePageUrlOverrides } from 'lib/get-exposed-routes'
+import { queryExposedRoutes } from 'lib/get-exposed-routes'
 
 export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
   if (req.method !== 'GET') {
@@ -27,7 +27,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
   const ttlMinutes = 24 * 60 // 24 hours
   const ttlSeconds = ttlMinutes * 60
 
-  const inversePageUrlOverrides = await getInversePageUrlOverrides();
+  const { inversePageUrlOverrides } = await queryExposedRoutes();
 
   const feed = new RSS({
     title: config.name,

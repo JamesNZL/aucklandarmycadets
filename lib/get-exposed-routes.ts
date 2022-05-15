@@ -6,14 +6,16 @@ import { PageUrlOverridesInverseMap, PageUrlOverridesMap } from './types'
 
 const prependSlash = (slug) => (slug[0] === '/') ? slug : `/${slug}`
 
-async function queryDatabase(): Promise<{
+export async function queryExposedRoutes(): Promise<{
 	exposedRouteIds: string[],
-	pageUrlOverrides: PageUrlOverridesMap
+	pageUrlOverrides: PageUrlOverridesMap,
+	inversePageUrlOverrides: PageUrlOverridesInverseMap
 }> {
 
 	if (!exposedRouteDatabaseId) return {
 		exposedRouteIds: [],
-		pageUrlOverrides: {}
+		pageUrlOverrides: {},
+		inversePageUrlOverrides: {}
 	}
 
 	const recordMap = await notion.getPage(exposedRouteDatabaseId)
@@ -29,7 +31,7 @@ async function queryDatabase(): Promise<{
 		throw new Error('Cannot find slug override property in exposed routes database')
 	}
 
-	const [exposedRouteIds, pageUrlOverrides] = Object.values(recordMap.block)
+	const [exposedRouteIds, rawPageUrlOverrides] = Object.values(recordMap.block)
 		.filter(({ value: { parent_id } }) => parent_id === collectionPointerId)
 		.filter(({ value: { properties } }) => properties?.title?.[0]?.[1]?.[0]?.[0] === 'p')
 		.reduce(
@@ -43,25 +45,16 @@ async function queryDatabase(): Promise<{
 	// ensure root id is exposed
 	if (!exposedRouteIds.includes(rootNotionPageId)) exposedRouteIds.push(rootNotionPageId)
 
-	return {
-		exposedRouteIds,
-		pageUrlOverrides
-	}
-}
-
-export async function getExposedRouteIds(): Promise<string[]> {
-	return (await queryDatabase()).exposedRouteIds
-}
-
-export async function getPageUrlOverrides(): Promise<PageUrlOverridesMap> {
-	return cleanPageUrlMap(
-		(await queryDatabase()).pageUrlOverrides,
+	const pageUrlOverrides = cleanPageUrlMap(
+		rawPageUrlOverrides,
 		{ label: 'pageUrlOverrides' }
 	)
-}
 
-export async function getInversePageUrlOverrides(): Promise<PageUrlOverridesInverseMap> {
-	return invertPageUrlOverrides(await getPageUrlOverrides())
+	return {
+		exposedRouteIds,
+		pageUrlOverrides,
+		inversePageUrlOverrides: invertPageUrlOverrides(pageUrlOverrides)
+	}
 }
 
 function invertPageUrlOverrides(

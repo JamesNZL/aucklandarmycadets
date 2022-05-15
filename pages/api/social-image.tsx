@@ -14,7 +14,7 @@ import { PageBlock } from 'notion-types'
 import { segoeUi, segoeUiSemibold } from 'lib/fonts'
 import { notion } from 'lib/notion-api'
 import { mapImageUrl } from 'lib/map-image-url'
-import { getExposedRouteIds } from 'lib/get-exposed-routes'
+import { queryExposedRoutes } from 'lib/get-exposed-routes'
 import * as config from 'lib/config'
 
 /**
@@ -36,7 +36,7 @@ export default withOGImage<'query', 'id'>({
         throw new Error('Invalid notion page id')
       }
 
-      const exposedRouteIds = await getExposedRouteIds();
+      const { exposedRouteIds } = await queryExposedRoutes();
 
       if (exposedRouteIds.length && !exposedRouteIds.includes(uuidToId(pageId))) {
         throw new Error('Unauthorised request to page id')

@@ -6,16 +6,12 @@ import { pageUrlAdditions, environment, site } from './config'
 import { db } from './db'
 import { getPage, UNAUTHORISED } from './notion'
 import { getSiteMap } from './get-site-map'
-import { getExposedRouteIds, getInversePageUrlOverrides, getPageUrlOverrides } from './get-exposed-routes'
+import { queryExposedRoutes } from './get-exposed-routes'
 
 export async function resolveNotionPage(domain: string, rawPageId?: string) {
   let pageId: string
   let recordMap: ExtendedRecordMap | typeof UNAUTHORISED
-  const exposedRouteIds = await getExposedRouteIds();
-
-  // TODO: let's not query twice (:
-  const pageUrlOverrides = await getPageUrlOverrides();
-  const inversePageUrlOverrides = await getInversePageUrlOverrides();
+  const { exposedRouteIds, pageUrlOverrides, inversePageUrlOverrides } = await queryExposedRoutes();
 
   if (rawPageId && rawPageId !== 'index') {
     pageId = parsePageId(rawPageId)

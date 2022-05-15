@@ -3,7 +3,7 @@ import { isDev, domain } from 'lib/config'
 import { getSiteMap } from 'lib/get-site-map'
 import { resolveNotionPage } from 'lib/resolve-notion-page'
 import { NotionPage } from 'components'
-import { getPageUrlOverrides } from 'lib/get-exposed-routes'
+import { queryExposedRoutes } from 'lib/get-exposed-routes'
 
 export const getStaticProps = async (context) => {
   const rawPageId = context.params.pageId as string
@@ -30,7 +30,7 @@ export async function getStaticPaths() {
   }
 
   const siteMap = await getSiteMap()
-  const pageUrlOverrides = await getPageUrlOverrides();
+  const { pageUrlOverrides } = await queryExposedRoutes();
 
   const staticPaths = {
     paths: [
