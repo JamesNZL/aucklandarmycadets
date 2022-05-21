@@ -14,7 +14,7 @@ export default siteConfig({
   author: 'City of Auckland Cadet Unit',
 
   // open graph metadata (optional)
-  description: 'We are part of the New Zealand Cadet Forces (NZCF) — a military-styled, volunteer, youth organisation for NZ\'s successful leaders of tomorrow.',
+  description: 'We are part of the New Zealand Cadet Forces (NZCF)—a military-styled, volunteer, youth organisation for NZ\'s successful leaders of tomorrow.',
 
   // default notion icon and cover images for site-wide consistency (optional)
   // page-specific values will override these site-wide defaults
