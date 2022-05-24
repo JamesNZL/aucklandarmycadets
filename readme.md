@@ -4,6 +4,6 @@ The City of Auckland Cadet Unit Website, a fork of [`nextjs-notion-starter-kit`]
 
 We are part of the [New Zealand Cadet Forces](https://www.cadetforces.org.nz) (NZCF)—a military-styled, volunteer, youth organisation for NZ's successful leaders of tomorrow.
 
-View the production website [here](https://www.aucklandarmycadets.com).
+View the production website [here](https://www.aucklandarmycadets.org.nz).
 
 > Built with ❤️ by [@JamesNZL](https://github.com/JamesNZL)
