@@ -151,7 +151,7 @@ export default withOGImage<'query', 'id'>({
       )
     }
   },
-  cacheControl: 'max-age=604800, stale-while-revalidate=86400s',
+  cacheControl: 'max-age=604800, stale-while-revalidate=86400',
   type: 'jpeg',
   quality: 75,
   dev: {
