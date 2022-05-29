@@ -95,7 +95,7 @@
   top: -75px;
 }
 
-.index-page .notion-asset-wrapper,
+/* .index-page .notion-asset-wrapper,
 .index-page .notion-asset-wrapper img {
   width: 100vw !important;
   max-width: 100vw !important;
@@ -109,7 +109,7 @@
   .index-page .notion-page-content-inner {
     width: inherit;
   }
-}
+} */
 
 .index-page .notion-text+.notion-asset-wrapper {
   margin-top: 5.39em;
