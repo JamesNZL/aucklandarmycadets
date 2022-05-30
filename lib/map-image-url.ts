@@ -11,13 +11,16 @@ export const mapImageUrl = (url: string, block: Block) => {
   }
 
   const mappedUrl = defaultMapImageUrl(url, block);
+
+  if (!mappedUrl.includes('X-Amz')) {
+    return mappedUrl
+  }
+
   const cdnUrl = `https://cdn.aucklandarmycadets.org.nz/${encodeURIComponent(mappedUrl)}`
 
-  if (cdnUrl.includes('X-Amz-Credential')) {
-    // cache the fully authorised url in the cdn in a non-blocking manner
-    // TODO: there must be a better way than this?
-    fetch(cdnUrl)
-  }
+  // cache the fully authorised url in the cdn in a non-blocking manner
+  // TODO: there must be a better way than this?
+  fetch(cdnUrl)
 
   return cdnUrl.replace(/X-Amz-.*?%26/g, '')
 }
