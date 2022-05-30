@@ -12,6 +12,8 @@ export const mapImageUrl = (url: string, block: Block) => {
 
   const mappedUrl = defaultMapImageUrl(url, block);
 
+  return mappedUrl
+
   if (!mappedUrl.includes('X-Amz')) {
     return mappedUrl
   }
