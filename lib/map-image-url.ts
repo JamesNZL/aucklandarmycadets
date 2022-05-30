@@ -11,7 +11,7 @@ export const mapImageUrl = (url: string, block: Block) => {
   }
 
   const mappedUrl = defaultMapImageUrl(url, block);
-  const cdnUrl = `htts://cdn.aucklandarmycadets.org.nz/${encodeURIComponent(mappedUrl)}`
+  const cdnUrl = `https://cdn.aucklandarmycadets.org.nz/${encodeURIComponent(mappedUrl)}`
 
   if (cdnUrl.includes('X-Amz-Credential')) {
     // cache the fully authorised url in the cdn in a non-blocking manner
