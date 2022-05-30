@@ -11,16 +11,13 @@ export const mapImageUrl = (url: string, block: Block) => {
   }
 
   const mappedUrl = defaultMapImageUrl(url, block);
+  const cdnUrl = `htts://cdn.aucklandarmycadets.org.nz/${encodeURIComponent(mappedUrl)}`
 
-  if (mappedUrl.includes('X-Amz-Credential')) {
-    const cdnUrl = `htts://cdn.aucklandarmycadets.org.nz/${encodeURIComponent(mappedUrl)}`
-
+  if (cdnUrl.includes('X-Amz-Credential')) {
     // cache the fully authorised url in the cdn in a non-blocking manner
     // TODO: there must be a better way than this?
     fetch(cdnUrl)
-
-    return cdnUrl.replaceAll(/X-Amz-.*?%26/g, '')
   }
 
-  return mappedUrl
+  return cdnUrl.replace(/X-Amz-.*?%26/g, '')
 }
