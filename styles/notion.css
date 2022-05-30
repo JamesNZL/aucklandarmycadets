@@ -119,6 +119,7 @@
   margin-top: 1.75em;
 }
 
+.index-page .notion-asset-wrapper-full div,
 .index-page .notion-asset-wrapper-full img {
   min-height: 60vh !important;
   max-height: 60vh !important;
