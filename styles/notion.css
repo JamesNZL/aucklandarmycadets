@@ -1,7 +1,6 @@
 /**
  * This file contains site-specifc style overrides for Notion elements from
- * 
- .
+ * react-notion-x.
  *
  * react-notion-x's goal is to match styling as close as possible to Notion,
  * whereas our goal with this site is to adjust Notion's styling in a few key
@@ -131,9 +130,9 @@
     padding-top: 88px;
   }
 
-  /* .index-page .notion-asset-wrapper-full-image {
+  .index-page .notion-asset-wrapper-full-image {
     display: none !important;
-  } */
+  }
 }
 
 .notion-text {
