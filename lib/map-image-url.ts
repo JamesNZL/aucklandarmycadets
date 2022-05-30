@@ -1,3 +1,5 @@
+import fetch from 'isomorphic-unfetch'
+
 import { Block } from 'notion-types'
 import { defaultMapImageUrl } from 'react-notion-x'
 
@@ -8,5 +10,17 @@ export const mapImageUrl = (url: string, block: Block) => {
     return url
   }
 
-  return defaultMapImageUrl(url, block)
+  const mappedUrl = defaultMapImageUrl(url, block);
+
+  if (mappedUrl.includes('X-Amz-Credential')) {
+    const cdnUrl = `htts://cdn.aucklandarmycadets.org.nz/${encodeURIComponent(mappedUrl)}`
+
+    // cache the fully authorised url in the cdn in a non-blocking manner
+    // TODO: there must be a better way than this?
+    fetch(cdnUrl)
+
+    return cdnUrl.replaceAll(/X-Amz-.*?%26/g, '')
+  }
+
+  return mappedUrl
 }
