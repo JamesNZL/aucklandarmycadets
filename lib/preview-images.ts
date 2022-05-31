@@ -13,7 +13,7 @@ export async function getPreviewImageMap(
   recordMap: ExtendedRecordMap
 ): Promise<PreviewImageMap> {
   const urls: string[] = getPageImageUrls(recordMap, {
-    mapImageUrl
+    mapImageUrl: (url, block) => mapImageUrl(url, block, true)
   })
     .concat([defaultPageIcon, defaultPageCover])
     .filter(Boolean)

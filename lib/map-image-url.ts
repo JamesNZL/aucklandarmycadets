@@ -3,7 +3,7 @@ import { defaultMapImageUrl } from 'react-notion-x'
 
 import { defaultPageIcon, defaultPageCover } from './config'
 
-export const mapImageUrl = (url: string, block: Block) => {
+export const mapImageUrl = (url: string, block: Block, keepSignedUrls = false) => {
   if (url === defaultPageCover || url === defaultPageIcon) {
     return url
   }
@@ -16,5 +16,7 @@ export const mapImageUrl = (url: string, block: Block) => {
 
   const cdnUrl = `https://cdn.aucklandarmycadets.org.nz/${encodeURIComponent(mappedUrl)}`
 
-  return cdnUrl.replace(/X-Amz-.*?%26/g, '')
+  return (keepSignedUrls)
+    ? cdnUrl
+    : cdnUrl.replace(/X-Amz-.*?%26/g, '')
 }
