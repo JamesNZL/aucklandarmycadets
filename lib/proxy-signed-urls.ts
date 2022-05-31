@@ -11,14 +11,26 @@ export async function proxySignedUrls(
   await pMap(
     urls,
     async (url) => {
-      console.log(`Fetching https://cdn.aucklandarmycadets.org.nz/${encodeURIComponent(url)}`)
+      console.log('Fetching', {
+        fetched: false,
+        fullUrl: `https://cdn.aucklandarmycadets.org.nz/${encodeURIComponent(url)}`,
+        filename: url.match(/\/([^/]*)\?x-id/)?.[1]
+      })
+
       try {
         const res = await memoizedGot(`https://cdn.aucklandarmycadets.org.nz/${encodeURIComponent(url)}`)
-        console.log(`Fetched https://cdn.aucklandarmycadets.org.nz/${encodeURIComponent(url)}`)
-        if (res.statusCode < 200 || res.statusCode >= 300) console.log(res)
+
+        console.log('Fetched', {
+          fetched: true,
+          fullUrl: `https://cdn.aucklandarmycadets.org.nz/${encodeURIComponent(url)}`,
+          filename: url.match(/\/([^/]*)\?Xnon /)?.[1]
+        })
+
+        if (res.statusCode < 200 || res.statusCode >= 300) console.warn('res error', { res })
       } catch (err) {
         console.warn(err)
       }
+
       return
     },
     {
