@@ -13,7 +13,7 @@ export async function proxySignedUrls(
 		async (url) => {
 			console.log(`Fetching https://cdn.aucklandarmycadets.org.nz/${encodeURIComponent(url)}`)
 			const res = await memoizedGot(`https://cdn.aucklandarmycadets.org.nz/${encodeURIComponent(url)}`)
-			console.log(res)
+			if (res.statusCode < 200 || res.statusCode >= 300) console.log(res)
 			return
 		},
 		{
