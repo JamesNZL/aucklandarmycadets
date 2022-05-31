@@ -11,8 +11,8 @@ export async function proxySignedUrls(
 	await pMap(
 		urls,
 		async (url) => {
-			console.log(`Fetching ${url}`)
-			return await memoizedGot(url)
+			console.log(`Fetching https://cdn.aucklandarmycadets.org.nz/${encodeURIComponent(url))
+			return await memoizedGot(`https://cdn.aucklandarmycadets.org.nz/${encodeURIComponent(url)}`)
 		},
 		{
 			concurrency: 8
