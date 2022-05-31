@@ -13,7 +13,9 @@ module.exports = withBundleAnalyzer({
       'pbs.twimg.com',
       'abs.twimg.com',
       's3.us-west-2.amazonaws.com',
-      'aucklandarmycadets.org.nz'
+      'aucklandarmycadets.org.nz',
+      'www.aucklandarmycadets.org.nz',
+      'cdn.aucklandarmycadets.org.nz'
     ],
     formats: ['image/avif', 'image/webp'],
     dangerouslyAllowSVG: true,
