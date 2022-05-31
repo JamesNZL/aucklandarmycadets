@@ -12,9 +12,13 @@ export async function proxySignedUrls(
 		urls,
 		async (url) => {
 			console.log(`Fetching https://cdn.aucklandarmycadets.org.nz/${encodeURIComponent(url)}`)
-			const res = await memoizedGot(`https://cdn.aucklandarmycadets.org.nz/${encodeURIComponent(url)}`)
-			console.log(`Fetched https://cdn.aucklandarmycadets.org.nz/${encodeURIComponent(url)}`)
-			if (res.statusCode < 200 || res.statusCode >= 300) console.log(res)
+			try {
+				const res = await memoizedGot(`https://cdn.aucklandarmycadets.org.nz/${encodeURIComponent(url)}`)
+				console.log(`Fetched https://cdn.aucklandarmycadets.org.nz/${encodeURIComponent(url)}`)
+				if (res.statusCode < 200 || res.statusCode >= 300) console.log(res)
+			} catch (err) {
+				console.warn(err)
+			}
 			return
 		},
 		{
