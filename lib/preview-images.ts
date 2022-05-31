@@ -22,7 +22,7 @@ export async function getPreviewImageMap(
     await pMap(
       urls,
       async (url) => {
-        const cacheKey = normalizeUrl(url)
+        const cacheKey = normalizeUrl(url).replace(/X-Amz-.*?%26/g, '')
         return [cacheKey, await getPreviewImage(url, { cacheKey })]
       },
       {
