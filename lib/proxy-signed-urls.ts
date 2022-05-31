@@ -12,7 +12,9 @@ export async function proxySignedUrls(
 		urls,
 		async (url) => {
 			console.log(`Fetching https://cdn.aucklandarmycadets.org.nz/${encodeURIComponent(url)}`)
-			return await memoizedGot(`https://cdn.aucklandarmycadets.org.nz/${encodeURIComponent(url)}`)
+			const res = await memoizedGot(`https://cdn.aucklandarmycadets.org.nz/${encodeURIComponent(url)}`)
+			console.log(res)
+			return
 		},
 		{
 			concurrency: 8
