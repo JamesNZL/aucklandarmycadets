@@ -5,6 +5,7 @@ import { mergeRecordMaps, uuidToId } from 'notion-utils'
 
 import { notion } from './notion-api'
 import { getPreviewImageMap } from './preview-images'
+import { proxySignedUrls } from './proxy-signed-urls'
 import {
   isPreviewImageSupportEnabled,
   navigationStyle,
@@ -59,6 +60,9 @@ export async function getPage(pageId: string, exposedPageIds: string[]): Promise
       )
     }
   }
+
+  // ensure signed urls are cached in the proxy before proceeding
+  await proxySignedUrls(recordMap);
 
   if (isPreviewImageSupportEnabled) {
     const previewImageMap = await getPreviewImageMap(recordMap)
