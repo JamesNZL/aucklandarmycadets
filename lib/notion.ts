@@ -64,6 +64,8 @@ export async function getPage(pageId: string, exposedPageIds: string[]): Promise
   // ensure signed urls are cached in the proxy before proceeding
   await proxySignedUrls(recordMap);
 
+  console.log('Generating preview images')
+
   if (isPreviewImageSupportEnabled) {
     const previewImageMap = await getPreviewImageMap(recordMap)
       ; (recordMap as any).preview_images = previewImageMap

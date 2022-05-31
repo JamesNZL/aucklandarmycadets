@@ -11,6 +11,7 @@ export async function proxySignedUrls(
 	await pMap(
 		urls,
 		async (url) => {
+			console.log(`Fetching ${url}`)
 			return await memoizedGot(url)
 		},
 		{
