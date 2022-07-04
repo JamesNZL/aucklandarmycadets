@@ -39,6 +39,7 @@ export const NotionPageHeader: React.FC<{
 
   React.useEffect(() => {
     // TODO: there has to be a better way to do this?
+    // * well, yes, but it'd involve forking the renderer itself
     [...document.querySelectorAll('.breadcrumbs>a.breadcrumb:not([href]), .breadcrumbs>a.breadcrumb:not([href])+.spacer')]
       .forEach(element => element.remove())
   }, [])

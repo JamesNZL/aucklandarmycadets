@@ -199,6 +199,16 @@ export const NotionPage: React.FC<types.PageProps> = ({
   const showTableOfContents = !!isBlogPost
   const minTableOfContentsItems = 3
 
+  React.useEffect(() => {
+    // TODO: there has to be a better way to do this?
+    // * well, yes, but it'd involve forking the renderer itself
+    [...document.querySelectorAll('a[href*="X-Amz-Expires"]')]
+      .forEach(anchor => {
+        const cdnUrl = mapImageUrl(anchor.getAttribute('href'), block)
+        anchor.setAttribute('href', cdnUrl)
+      });
+  }, [])
+
   const pageAside = React.useMemo(
     () => (
       <PageAside block={block} recordMap={recordMap} isBlogPost={isBlogPost} />
