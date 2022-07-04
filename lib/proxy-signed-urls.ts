@@ -14,7 +14,7 @@ export async function proxySignedUrls(
       console.log('Fetching', {
         fetched: false,
         fullUrl: `https://cdn.aucklandarmycadets.org.nz/${encodeURIComponent(url)}`,
-        filename: url.match(/\/([^/]*)\?x-id/)?.[1]
+        filename: url.match(/\/([^/]*)\?X/)?.[1]
       })
 
       try {
@@ -23,7 +23,7 @@ export async function proxySignedUrls(
         console.log('Fetched', {
           fetched: true,
           fullUrl: `https://cdn.aucklandarmycadets.org.nz/${encodeURIComponent(url)}`,
-          filename: url.match(/\/([^/]*)\?Xnon /)?.[1]
+          filename: url.match(/\/([^/]*)\?X/)?.[1]
         })
 
         if (res.statusCode < 200 || res.statusCode >= 300) console.warn('res error', { res })
