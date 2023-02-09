@@ -10,7 +10,7 @@ export const mapImageUrl = (url: string, block: Block, keepSignedUrls = false) =
 
   const mappedUrl = defaultMapImageUrl(url, block);
 
-  if (!mappedUrl.includes('secure.notion-static.com')) {
+  if (!mappedUrl.includes('secure.notion-static.com') || !mappedUrl.includes('X-Amz')) {
     return mappedUrl
   }
 
