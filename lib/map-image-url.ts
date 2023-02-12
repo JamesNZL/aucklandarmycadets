@@ -10,7 +10,7 @@ export const mapImageUrl = (url: string, block: Block, keepSignedUrls = false) =
 
   const mappedUrl = defaultMapImageUrl(url, block);
 
-  if (!mappedUrl.includes('.pdf') && !mappedUrl.includes('X-Amz')) {
+  if (!mappedUrl.includes('X-Amz')) {
     return mappedUrl
   }
 

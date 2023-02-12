@@ -202,7 +202,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
   React.useEffect(() => {
     // TODO: there has to be a better way to do this?
     // * well, yes, but it'd involve forking the renderer itself
-    [...document.querySelectorAll('a[href*=".pdf"]')]
+    [...document.querySelectorAll('a[href*="X-Amz-Expires"]')]
       .forEach(anchor => {
         const cdnUrl = mapImageUrl(anchor.getAttribute('href'), block)
         anchor.setAttribute('href', cdnUrl)
